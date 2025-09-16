@@ -30,8 +30,8 @@ public class NotCircleShapeEstimator implements EstimatePerimeterStrategy, Estim
                 return Math.ceil((a * b) * 100.0) / 100.0;
             case 3:
                 double x = sides[0], y = sides[1], z = sides[2];
-                double p = estimatePerimeter(x, y, z);
-                double area = Math.sqrt(p * (p - x) * (p - y) * (p - z));
+                double halfP = estimatePerimeter(x, y, z) / 2;
+                double area = Math.sqrt(halfP * (halfP - x) * (halfP - y) * (halfP - z));
                 return Math.ceil(area * 100.0) / 100.0;
             case 4:
                 throw new UnsupportedOperationException("Площадь трапеции не рассчитывается");

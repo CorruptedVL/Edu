@@ -23,7 +23,7 @@ public class GeometryTest {
         var perimeter = Geometry.perimeter(triangle);
         var area = Geometry.area(triangle);
         assertThat(perimeter, is(11.0));
-        assertThat(area, is(64.49));
+        assertThat(area, is(3.8));
     }
 
     @Test
