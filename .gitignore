@@ -1,0 +1,53 @@
+# ------------------------
+# Build artifacts
+# ------------------------
+/target/               # Maven
+/build/                # Gradle
+/out/                  # IntelliJ IDEA
+/bin/                  # Generic binaries
+
+# ------------------------
+# IDE and editor files
+# ------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# ------------------------
+# Logs and reports
+# ------------------------
+*.log
+hs_err_pid*
+*.stacktrace
+
+# ------------------------
+# OS-specific files
+# ------------------------
+.DS_Store
+
+# ------------------------
+# Dependency caches
+# ------------------------
+.gradle/
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar   # оставить wrapper в репо
+**/classes/
+
+# ------------------------
+# Environment & secrets
+# ------------------------
+*.env
+*.key
+*.pem
+*.p12
+*.jks
+
+# ------------------------
+# Temporary files
+# ------------------------
+*.tmp
+*.swp
+*.bak
+*.orig
