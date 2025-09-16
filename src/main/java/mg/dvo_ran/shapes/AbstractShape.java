@@ -1,8 +1,7 @@
 package mg.dvo_ran.shapes;
 
-import mg.dvo_ran.EstimateAreaStrategy;
-import mg.dvo_ran.EstimatePerimeterStrategy;
-import mg.dvo_ran.Shape;
+import mg.dvo_ran.estimators.EstimateAreaStrategy;
+import mg.dvo_ran.estimators.EstimatePerimeterStrategy;
 
 public abstract class AbstractShape implements Shape {
 

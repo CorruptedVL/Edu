@@ -1,7 +1,7 @@
 package mg.dvo_ran.shapes;
 
-import mg.dvo_ran.EstimateAreaStrategy;
-import mg.dvo_ran.EstimatePerimeterStrategy;
+import mg.dvo_ran.estimators.EstimateAreaStrategy;
+import mg.dvo_ran.estimators.EstimatePerimeterStrategy;
 import mg.dvo_ran.estimators.CircleShapeEstimator;
 
 public abstract class AbstractCircleShapes extends AbstractShape {

@@ -1,8 +1,5 @@
 package mg.dvo_ran.estimators;
 
-import mg.dvo_ran.EstimateAreaStrategy;
-import mg.dvo_ran.EstimatePerimeterStrategy;
-
 public class NotCircleShapeEstimator implements EstimatePerimeterStrategy, EstimateAreaStrategy {
 
     @Override

@@ -1,4 +1,4 @@
-package mg.dvo_ran;
+package mg.dvo_ran.shapes;
 
 public interface Shape {
     double getPerimeter();
