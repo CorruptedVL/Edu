@@ -1,6 +1,6 @@
 package mg.edu.geometry;
 
-import mg.dvo_ran.Shape;
+import mg.dvo_ran.shapes.Shape;
 
 
 public class Geometry {
