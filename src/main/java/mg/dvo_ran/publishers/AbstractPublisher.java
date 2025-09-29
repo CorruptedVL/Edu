@@ -1,4 +1,5 @@
 package mg.dvo_ran.publishers;
+
 import mg.dvo_ran.events.Event;
 import mg.dvo_ran.observers.Observer;
 
@@ -19,7 +20,7 @@ public abstract class AbstractPublisher implements Publisher {
     }
 
     protected void dispatchToAll(Event event) {
-        for (Observer o :observers){
+        for (Observer o : observers) {
             o.on(event);
         }
 

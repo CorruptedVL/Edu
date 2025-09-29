@@ -1,12 +1,26 @@
 package mg.edu.geometry;
 
 import mg.dvo_ran.shapes.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GeometryTest {
+
+    @BeforeAll
+    static void setUp() {
+//        Geometry.subscribe(new LogEventListener());
+        Geometry.subscribe(new StatisticsListener());
+    }
+
+    @AfterAll
+    static void afterAll() {
+        Geometry.unsubscribeAll();
+    }
 
     @Test
     public void testRectangle() {

@@ -5,6 +5,7 @@ import mg.dvo_ran.shapes.Circle;
 import mg.dvo_ran.shapes.Rectangle;
 import mg.dvo_ran.shapes.Square;
 import mg.dvo_ran.shapes.Triangle;
+import mg.edu.geometry.Geometry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,9 @@ public class StatsTestByUsers {
 
         assertThat(fx.areaCount("Alice"), is(1));
         assertThat(fx.perimeterCount("Alice"), is(1));
+
+        Geometry.area(new Square(2));
+
     }
 
     @Test
@@ -50,4 +54,6 @@ public class StatsTestByUsers {
         assertThat(fx.areaCount("Alice"), is(3));
         assertThat(fx.perimeterCount("Alice"), is(0));
     }
+
+
 }
