@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UserGeometryListenerTest {
+public class UserListenerTest {
 
     private static UserListener listener;
 
@@ -24,31 +24,39 @@ public class UserGeometryListenerTest {
     }
 
 
-
     @Test
-    void allStatsTest() {
+    void statsByUserTest() {
+        Shape trapezoidByMikhalych = shapeByUser("Mikhalych", new Trapezoid(10.0, 10.0, 10.0, 10.0));
+        Geometry.perimeter(trapezoidByMikhalych);
 
-        var alice = new DefaultUser("Alice");
-        var rectangle = new Rectangle(10.0, 10.0);
-        var shape = new UsersShape(alice, rectangle);
-        Geometry.area(shape);
+        Shape rectangleByAlice = shapeByUser("Alice", new Rectangle(10.0, 10.0));
+        Geometry.perimeter(rectangleByAlice);
+        Geometry.area(rectangleByAlice);
+
+        Shape ellipseByAlice = shapeByUser("Alice", new Ellipse(9.0, 10.0));
+        Geometry.perimeter(ellipseByAlice);
+        Geometry.area(ellipseByAlice);
+
+        Shape triangleByAlice = shapeByUser("Alice", new Triangle(10,10,10));
+        Geometry.area(triangleByAlice);
 
 
-//        Geometry.area(new Triangle(10.0, 10.0, 10));
-//        Geometry.area(new Circle(10.0));
-//        Geometry.area(new Ellipse(9, 10));
-//
-//
-//        Geometry.perimeter(new Rectangle(9, 10));
-//        Geometry.perimeter(new Square(10));
-//        Geometry.perimeter(new Triangle(10, 10, 10));
-//        Geometry.perimeter(new Trapezoid(10, 10, 10, 10));
-//        Geometry.perimeter(new Circle(10));
-//        Geometry.perimeter(new Ellipse(9, 10));
+        Shape squareByAlex = shapeByUser("Alex", new Square(10.0));
+        Geometry.area(squareByAlex);
+        Geometry.perimeter(squareByAlex);
 
-//        assertEquals(5, stats.getAreaCalls(), "Должно быть 5"); //area stat
-//        assertEquals(6, stats.getPerimeterCalls(), "должен быть 6"); //perimeter stat
-//        assertEquals(2, stats.getTriangularCalls(), "должен быть 2"); //triangular stat
+        Shape circleByZheka = shapeByUser("Zheka", new Circle(10.0));
+        Geometry.area(circleByZheka);
+        Geometry.perimeter(circleByZheka);
+
+
+        System.out.println(listener);
+
+
+    }
+
+    private Shape shapeByUser(String username, Shape shape) {
+        return new UsersShape(new DefaultUser(username), shape);
     }
 
 }

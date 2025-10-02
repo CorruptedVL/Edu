@@ -6,7 +6,7 @@ public class LogEventListener implements GeometryListener {
     public void notify(GeometryEvent event) {
         System.out.printf("%s, %s -> %s\n",
                 event.shape().getClass().getSimpleName(),
-                event.name(),
+                event.type(),
                 event.result());
     }
 

@@ -2,6 +2,7 @@ package mg.edu.geometry;
 
 import mg.dvo_ran.shapes.Triangle;
 
+
 public class StatisticsListener implements GeometryListener {
 
     private int areaCalls;
@@ -10,16 +11,15 @@ public class StatisticsListener implements GeometryListener {
 
     @Override
     public void notify(GeometryEvent event) {
-        var name = event.name();
+        var name = event.type();
         switch (name) {
-            case "perimeter" -> perimeterCalls++;
-            case "area" -> areaCalls++;
+            case PERIMETER -> perimeterCalls++;
+            case AREA -> areaCalls++;
         }
         var shape = event.shape();
         if (shape instanceof Triangle) {
             triangularCalls++;
         }
-        print();
     }
 
     public int getAreaCalls() {
@@ -40,4 +40,12 @@ public class StatisticsListener implements GeometryListener {
         System.out.println(new Stats(areaCalls, perimeterCalls, triangularCalls));
     }
 
+    @Override
+    public String toString() {
+        return "StatisticsListener{" +
+                "areaCalls=" + areaCalls +
+                ", perimeterCalls=" + perimeterCalls +
+                ", triangularCalls=" + triangularCalls +
+                '}';
+    }
 }

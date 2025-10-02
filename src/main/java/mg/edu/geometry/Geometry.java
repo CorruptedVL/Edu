@@ -25,19 +25,19 @@ public class Geometry {
 
     public static double perimeter(Shape shape) {
         var perimeter = shape.getPerimeter();
-        notifyListeners("perimeter", shape, perimeter);
+        notifyListeners(EventType.PERIMETER, shape, perimeter );
         return perimeter;
     }
 
     public static double area(Shape shape) {
         var area = shape.getArea();
-        notifyListeners("area", shape, area);
+        notifyListeners(EventType.AREA, shape, area);
         return area;
     }
 
-    private static void notifyListeners(String eventType, Shape shape, Double result) {
+    private static void notifyListeners( EventType type, Shape shape, Double result) {
         for (var listener: GEOMETRY.listeners) {
-            var event = new GeometryEvent(eventType, shape, result);
+            var event = new GeometryEvent(type, shape, result);
             listener.notify(event);
         }
     }
