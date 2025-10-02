@@ -1,8 +1,4 @@
 package mg.edu.geometry;
-
-import mg.dvo_ran.shapes.Triangle;
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -29,7 +25,7 @@ public class UserListener implements GeometryListener {
 
     @Override
     public String toString() {
-        return stats.toString();_
+        return stats.toString();
     }
 
 }
