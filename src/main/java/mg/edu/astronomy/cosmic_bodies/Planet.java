@@ -2,14 +2,15 @@ package mg.edu.astronomy.cosmic_bodies;
 
 import mg.edu.astronomy.estimators.EstimateStrategy;
 
-public abstract class Planet extends AbstractBody {
-    EstimateStrategy strategy;
+public class Planet extends AbstractBody {
 
-    public Planet(String name, EstimateStrategy strategy) {
+    private final PlanetFacts facts;
+
+    public Planet(String name, PlanetFacts facts) {
         super(name);
-        this.strategy = strategy;
+        this.facts = facts;
     }
-    public double distanceTo(Planet other) {
-        return strategy.estimate(this, other);
+    public PlanetFacts facts() {
+        return facts;
     }
 }

@@ -1,15 +1,15 @@
 package mg.edu.astronomy.estimators;
 
-import mg.edu.astronomy.cosmic_bodies.HasRadius;
 import mg.edu.astronomy.cosmic_bodies.Planet;
 
 public class DistanceByOrbit implements EstimateStrategy {
     @Override
     public double estimate(Planet a, Planet b) {
-        if (!(a instanceof HasRadius p1) || !(b instanceof HasRadius p2)){
-            throw new IllegalStateException(
-                    "У обоих планет должны быть известны радиусы, чтобы посчитать");
+        double r1 = a.facts().radius();
+        double r2 = b.facts().radius();
+        if (Double.isNaN(r1) || Double.isNaN(r2)) {
+            throw new IllegalStateException("Нужны известные радиусы орбит у обеих планет");
         }
-        return Math.abs(p1.distanceToStar() - p2.distanceToStar());
+        return Math.abs(r1 - r2);
     }
 }
