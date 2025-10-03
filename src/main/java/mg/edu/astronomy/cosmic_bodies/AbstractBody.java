@@ -1,4 +1,4 @@
-package mg.edu.astronomy.cosmic_bodys;
+package mg.edu.astronomy.cosmic_bodies;
 
 public abstract class AbstractBody implements Body {
     private final String name;

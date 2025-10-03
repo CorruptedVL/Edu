@@ -1,6 +1,6 @@
 package mg.edu.astronomy.estimators;
 
-import mg.edu.astronomy.cosmic_bodys.Planet;
+import mg.edu.astronomy.cosmic_bodies.Planet;
 
 public class DistanceEstimator implements EstimateStrategy {
     @Override

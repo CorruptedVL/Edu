@@ -1,4 +1,4 @@
-package mg.edu.astronomy.cosmic_bodys;
+package mg.edu.astronomy.cosmic_bodies;
 
 public interface Body {
     String name();
