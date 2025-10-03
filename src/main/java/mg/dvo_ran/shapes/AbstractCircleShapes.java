@@ -11,7 +11,5 @@ public abstract class AbstractCircleShapes extends AbstractShape {
     }
 
     @Override
-    protected EstimateAreaStrategy areaStrategy() {
-        return new CircleShapeEstimator();
-    }
+    protected EstimateAreaStrategy areaStrategy() { return new CircleShapeEstimator(); }
 }

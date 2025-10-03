@@ -1,34 +1,15 @@
 package mg.edu.astronomy.cosmic_bodies;
 
-public class Planet extends AbstractBody {
+import mg.edu.astronomy.estimators.EstimateStrategy;
 
-    private final double distanceToStar;
-    private final double x;
-    private final double y;
+public abstract class Planet extends AbstractBody {
+    EstimateStrategy strategy;
 
-    public Planet(String name, double distanceToStar) {
+    public Planet(String name, EstimateStrategy strategy) {
         super(name);
-        this.distanceToStar = distanceToStar;
-        this.x = Double.NaN;
-        this.y = Double.NaN;
+        this.strategy = strategy;
     }
-
-    public Planet(String name, double x, double y) {
-        super(name);
-        this.x = x;
-        this.y = y;
-        this.distanceToStar = Math.hypot(x, y);
-    }
-
-    public double distanceToStar() {
-        return distanceToStar;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
+    public double distanceTo(Planet other) {
+        return strategy.estimate(this, other);
     }
 }
