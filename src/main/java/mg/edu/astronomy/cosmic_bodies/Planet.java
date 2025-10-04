@@ -1,6 +1,6 @@
 package mg.edu.astronomy.cosmic_bodies;
 
-import mg.edu.astronomy.estimators.EstimateStrategy;
+import mg.edu.astronomy.facts.PlanetFacts;
 
 public class Planet extends AbstractBody {
 

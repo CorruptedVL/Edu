@@ -1,28 +1,33 @@
-package mg.edu.astronomy.cosmic_bodies;
+package mg.edu.astronomy.facts;
 
-public record PlanetFacts(double x, double y, double radius, String darkSignature) {
+import java.util.HashMap;
+import java.util.Map;
 
-    public static PlanetFacts empty () {
-        return new PlanetFacts(Double.NaN, Double.NaN, Double.NaN, null);
+public final class PlanetFacts {
+    private final Map<Class<?>, Fact> facts = new HashMap<>();
+
+    private PlanetFacts() {
     }
 
-    public static PlanetFacts coord(double x, double y) {
-        return new PlanetFacts(x, y, Double.NaN, null);
-    }
-    public static PlanetFacts orbit(double radius) {
-        return new PlanetFacts(Double.NaN, Double.NaN, radius, null);
+    public static PlanetFacts empty() {
+        return new PlanetFacts();
     }
 
-    public PlanetFacts withCoord(double x, double y) {
-        return new PlanetFacts(x, y, radius, darkSignature);
+    public PlanetFacts add(Fact fact) {
+        facts.put(facts.getClass(), fact);
+        return this;
     }
 
-    public PlanetFacts withOrbit(double radius) {
-        return new PlanetFacts(x, y, radius, darkSignature);
+    public OrbitRadius orbitRadius() {
+        return (OrbitRadius) facts.get(OrbitRadius.class);
     }
 
-    public PlanetFacts withDarkSignature(String darkSignature) {
-        return new PlanetFacts(x, y, radius, darkSignature);
+    public Coordinates coordinates() {
+        return (Coordinates) facts.get(Coordinates.class);
+    }
+
+    public DarkMatter darkMatter() {
+        return (DarkMatter) facts.get(DarkMatter.class);
     }
 
 }

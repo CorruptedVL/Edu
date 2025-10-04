@@ -1,2 +1,3 @@
-package mg.edu.astronomy.facts;public interface Fact {
+package mg.edu.astronomy.facts;
+public interface Fact {
 }
