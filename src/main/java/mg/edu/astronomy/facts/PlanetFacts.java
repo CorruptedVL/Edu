@@ -30,4 +30,8 @@ public final class PlanetFacts {
         return (DarkMatter) facts.get(DarkMatter.class);
     }
 
+    public Something something() {
+        return (Something) facts.get(Something.class);
+    }
+
 }
