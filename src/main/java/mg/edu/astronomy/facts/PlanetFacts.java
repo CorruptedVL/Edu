@@ -14,7 +14,7 @@ public final class PlanetFacts {
     }
 
     public PlanetFacts add(Fact fact) {
-        facts.put(facts.getClass(), fact);
+        facts.put(fact.getClass(), fact);
         return this;
     }
 
