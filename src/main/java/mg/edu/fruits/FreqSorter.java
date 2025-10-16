@@ -13,41 +13,45 @@ public class FreqSorter implements Sorter {
 
     private void sorting(List<String> copy) {
 
-        Map<String, Integer> freq = new HashMap<>();
-        for (String s : copy) {
-            freq.merge(s, 1, Integer::sum);
+        final Map<String, Integer> freq = new HashMap<>();
+        final Map<String, Integer> firstIndx = new HashMap<>();
+        for (int i = 0; i < copy.size(); i++) {
+            String name = copy.get(i);
+            freq.merge(name, 1, Integer::sum);
+            firstIndx.putIfAbsent(name, i);
         }
-
-        Map<Integer, List<String>> byCount = new TreeMap<>(Collections.reverseOrder());
-
-        Set<String> seen = new HashSet<>();
-
-        for (String name : copy) {
-            if (seen.add(name)) {
-                int count = freq.get(name);
-                List<String> bucket = byCount.get(count);
-                if (bucket == null) {
-                    bucket = new ArrayList<>();
-                    byCount.put(count, bucket);
-                }
-                bucket.add(name);
+        List<String> uniques = new ArrayList<>(new LinkedHashSet<>(copy));
+        uniques.sort(new Comparator<String>() {
+            @Override
+            public int compare(String a, String b) {
+                int fa = freq.get(a);
+                int fb = freq.get(b);
+                int byFreq = Integer.compare(fb, fa);
+                if (byFreq != 0) return byFreq;
+                return Integer.compare(firstIndx.get(a), firstIndx.get(b));
             }
-        }
-        copy.clear();
-        for (List<String> bucket : byCount.values()) {
-            copy.addAll(bucket);
-        }
+        });
 
-//
-//        List<String> uniques = new ArrayList<>(new LinkedHashSet<>(copy));
-//
-//        uniques.sort(new Comparator<String>() {
-//            @Override
-//            public int compare(String a, String b) {
-//                int fa = freq.getOrDefault(a, 0);
-//                int fb = freq.getOrDefault(b, 0);
-//                return Integer.compare(fb, fa);
+        copy.clear();
+        copy.addAll(uniques);
+
+//        Map<Integer, List<String>> byCount = new TreeMap<>(Collections.reverseOrder());
+//        Set<String> seen = new HashSet<>();
+//        for (String name : copy) {
+//            if (seen.add(name)) {
+//                int count = freq.get(name);
+//                List<String> bucket = byCount.get(count);
+//                if (bucket == null) {
+//                    bucket = new ArrayList<>();
+//                    byCount.put(count, bucket);
+//                }
+//                bucket.add(name);
 //            }
-//        });
+//            copy.clear();
+//            for (List<String> bucket : byCount.values()){
+//                copy.addAll(bucket);
+//            }
+//        }
     }
+
 }
