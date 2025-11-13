@@ -1,5 +1,7 @@
 package mg.edu.geometry;
 
+import mg.dvo_ran.Geometry;
+import mg.dvo_ran.StatisticsListener;
 import mg.dvo_ran.shapes.*;
 import org.junit.jupiter.api.*;
 

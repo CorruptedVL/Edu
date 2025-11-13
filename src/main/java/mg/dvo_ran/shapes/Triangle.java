@@ -1,22 +1,32 @@
 package mg.dvo_ran.shapes;
 
-public class Triangle extends AbstractNotCircleShapes{
-    private final double x;
-    private  final double y;
-    private final double z;
+public class Triangle extends AbstractNotCircleShapes {
+    private final double a;
+    private final double b;
+    private final double c;
 
-    public Triangle(double x, double y, double z) {
-        if (x <= 0 || y <= 0 || z <= 0)
-            throw new IllegalArgumentException("Стороны треугольника должны быть положительными.");
-        if (x + y <= z || x + z <= y || y + z <= x)
+    public Triangle(double a, double b, double c) {
+        validateSide(a, "a");
+        validateSide(b, "b");
+        validateSide(a, "c");
+        if (a + b <= c || a + c <= b || b + c <= a)
             throw new IllegalArgumentException("Такого треугольника не существует (нарушено неравенство треугольника).");
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    private void validateSide(double value, String name) {
+        if (Double.isNaN(value) || Double.isInfinite(value)) {
+            throw new IllegalArgumentException("Side " + name + " must be a finite number");
+        }
+        if (value <= 0) {
+            throw new IllegalArgumentException("Side " + name + " must be > 0");
+        }
     }
 
     @Override
     protected double[] sides() {
-        return new double[] {x, y, z};
+        return new double[]{a, b, c};
     }
 }

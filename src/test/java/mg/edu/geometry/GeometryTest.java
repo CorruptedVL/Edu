@@ -1,9 +1,10 @@
 package mg.edu.geometry;
 
+import mg.dvo_ran.Geometry;
+import mg.dvo_ran.StatisticsListener;
 import mg.dvo_ran.shapes.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;

@@ -52,9 +52,8 @@ public class GeometryController {
             };
 
             return switch (eventType) {
-                case AREA      -> Geometry.area(shape);
+                case AREA -> Geometry.area(shape);
                 case PERIMETER -> Geometry.perimeter(shape);
-                default        -> throw new BadRequestException("Unsupported event type: " + eventType);
             };
         } catch (IllegalArgumentException ex) {
             // ошибки из доменной логики

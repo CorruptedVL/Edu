@@ -22,7 +22,7 @@ public class GeometryResource {
                 uriInfo.getQueryParameters(),
                 EventType.AREA
         );
-        return "Area" + shapeName.toLowerCase() + " = " + value;
+        return "Area of " + shapeName.toLowerCase() + " = " + value;
     }
 
     @GET
@@ -36,6 +36,6 @@ public class GeometryResource {
                 uriInfo.getQueryParameters(),
                 EventType.PERIMETER
         );
-        return "Perimeter " + shapeName.toLowerCase() + " = " + value;
+        return "Perimeter of " + shapeName.toLowerCase() + " = " + value;
     }
 }

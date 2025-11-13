@@ -1,4 +1,4 @@
-package mg.edu.geometry;
+package mg.dvo_ran;
 
 import mg.dvo_ran.shapes.Triangle;
 
