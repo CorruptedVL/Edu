@@ -22,7 +22,7 @@ class GeometryControllerTest {
 
 
     @Test
-    void rectangleArea_10x20_shouldBe200() {
+    void rectangleArea() {
         MultivaluedMap<String, String> params = mapOf("a", "10", "b", "20");
 
         double result = controller.compute("rectangle", params, EventType.AREA);
@@ -31,7 +31,7 @@ class GeometryControllerTest {
     }
 
     @Test
-    void rectanglePerimeter_10x20_shouldBe60() {
+    void rectanglePerimeter() {
         MultivaluedMap<String, String> params = mapOf("a", "10", "b", "20");
 
         double result = controller.compute("rectangle", params, EventType.PERIMETER);
@@ -40,7 +40,7 @@ class GeometryControllerTest {
     }
 
     @Test
-    void triangle_3_4_5_areaShouldBe6() {
+    void triangleArea() {
         MultivaluedMap<String, String> params = mapOf("a", "3", "b", "4", "c", "5");
 
         double result = controller.compute("triangle", params, EventType.AREA);
@@ -49,7 +49,7 @@ class GeometryControllerTest {
     }
 
     @Test
-    void missingParam_shouldThrowBadRequest() {
+    void missingParamBadRequest() {
         MultivaluedMap<String, String> params = mapOf();
 
         BadRequestException ex = assertThrows(
@@ -59,7 +59,7 @@ class GeometryControllerTest {
     }
 
     @Test
-    void invalidNumber_shouldThrowBadRequest() {
+    void invalidNumberBadRequest() {
         MultivaluedMap<String, String> params = mapOf("radius", "abc");
 
         BadRequestException ex = assertThrows(
@@ -69,7 +69,7 @@ class GeometryControllerTest {
     }
 
     @Test
-    void unknownShape_shouldThrowBadRequest() {
+    void unknownShapeBadRequest() {
         MultivaluedMap<String, String> params = mapOf("side", "10");
 
         BadRequestException ex = assertThrows(

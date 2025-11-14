@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ExceptionsTest {
+public class GeometryExceptionsTest {
     @Test
     void circleNegativeRadius() {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> new Circle(-1.0));
