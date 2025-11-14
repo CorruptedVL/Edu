@@ -66,6 +66,7 @@ public class GeometryController {
         if (value == null) {
             throw new BadRequestException("Missing query parameter: " + paramName);
         }
+        value = value.replace(",", ".");
         try {
             return Double.parseDouble(value);
         } catch (NumberFormatException e) {
