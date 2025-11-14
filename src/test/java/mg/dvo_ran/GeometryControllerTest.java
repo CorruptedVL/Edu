@@ -1,9 +1,9 @@
-package mg.dvo_ran.web;
+package mg.dvo_ran;
 
 import jakarta.ws.rs.BadRequestException;
 import jakarta.ws.rs.core.MultivaluedHashMap;
 import jakarta.ws.rs.core.MultivaluedMap;
-import mg.dvo_ran.EventType;
+import mg.dvo_ran.web.GeometryController;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,9 +12,6 @@ class GeometryControllerTest {
 
     private final GeometryController controller = new GeometryController();
 
-    /**
-     * Удобный метод для создания MultivaluedMap из пары ключ-значение.
-     */
     private MultivaluedMap<String, String> mapOf(String... kv) {
         MultivaluedMap<String, String> map = new MultivaluedHashMap<>();
         for (int i = 0; i < kv.length; i += 2) {
@@ -53,7 +50,6 @@ class GeometryControllerTest {
 
     @Test
     void missingParam_shouldThrowBadRequest() {
-        // нет radius
         MultivaluedMap<String, String> params = mapOf();
 
         BadRequestException ex = assertThrows(
